@@ -1,7 +1,7 @@
 import time
 from multiprocessing import Pool
 from functools import wraps
-
+from pprint import pprint
 from typing import List, Tuple, Any
 
 from resources import category_health_risk, data
@@ -85,10 +85,11 @@ def get_total_overweight_count(input_data: List[dict]) -> int:
 
 if __name__ == "__main__":
     # start running this file directly
-    calculate_bmi_sequentially(data)
+    results = calculate_bmi_sequentially(data)
+    pprint(results[:10])
 
     # to speed up process i have used multiprocessing
-    calculate_bmi_in_parallel(data)
+    results = calculate_bmi_in_parallel(data)
 
     # get count of total overweight from the data
     get_total_overweight_count(data)
