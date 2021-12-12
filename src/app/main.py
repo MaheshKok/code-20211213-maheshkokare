@@ -53,7 +53,7 @@ def calculate_bmi_sequentially(input_data: list) -> List[Tuple[Any, Any]]:
 
     results = []
     for record in input_data:
-        bmi = calculate_bmi_with_category_health_risk(record)
+        bmi = get_bmi(record)
         for key, value in category_health_risk.items():
             if key[0] < bmi < key[1]:
                 results.append((bmi, *value))
